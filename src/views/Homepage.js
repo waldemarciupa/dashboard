@@ -1,15 +1,12 @@
 import React from 'react';
-import Button from 'components/Button';
-import GlobalStyle from 'theme/GlobalStyle';
+// import Menu from 'components/Menu';
 
-function Homepage() {
+const Homepage = () => {
   return (
-    <div>
-      <GlobalStyle />
-      <Button >Add</Button>
-      <Button secondary>Remove</Button>
-    </div>
-  );
+    <>
+      <h1>Homepage</h1>
+    </>
+  )
 }
 
 export default Homepage;
