@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import Clock from 'components/Clock';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 
-
 const StyledWrapper = styled.nav`
     position: fixed;
     left: 0;
@@ -16,8 +15,9 @@ const StyledWrapper = styled.nav`
     color: ${({ theme }) => theme.primary};
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
+    box-shadow: 0 2px 5px #ccc;
+
 `;
 
 const StyledLogoLink = styled(NavLink)`
@@ -30,7 +30,8 @@ const StyledLogoLink = styled(NavLink)`
 `;
 
 const StyledLinksList = styled.ul`
-  list-style: none;
+    list-style: none;
+    margin-top: 10rem;
 `;
 
 const StyledClock = styled.span`
@@ -38,9 +39,16 @@ const StyledClock = styled.span`
 `
 
 const active = {
-    fontWeight: "600",
-    color: "red",
+    color: "grey",
 }
+
+const StyledNavLink = styled(NavLink)`
+    display: block;
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary};
+    padding-bottom: 3rem;
+    font-weight: 600;
+`;
 
 const Menu = () => {
     return (
@@ -50,16 +58,16 @@ const Menu = () => {
             </StyledLogoLink>
             <StyledLinksList>
                 <li>
-                    <NavLink exact to='/' activeStyle={active}>Homepage</NavLink>
+                    <StyledNavLink exact to='/' activeStyle={active}>Homepage</StyledNavLink>
                 </li>
                 <li>
-                    <NavLink to='/notes' activeStyle={active}>Notes</NavLink>
+                    <StyledNavLink to='/notes' activeStyle={active}>Notes</StyledNavLink>
                 </li>
                 <li>
-                    <NavLink to='/weather' activeStyle={active}>Weather</NavLink>
+                    <StyledNavLink to='/weather' activeStyle={active}>Weather</StyledNavLink>
                 </li>
                 <li>
-                    <NavLink to='/currencies' activeStyle={active}>Currencies</NavLink>
+                    <StyledNavLink to='/currencies' activeStyle={active}>Currencies</StyledNavLink>
                 </li>
             </StyledLinksList>
             <StyledClock>
