@@ -13,7 +13,7 @@ const Countries = ({ countries, handleChange }) => {
   return (
     <>
       <select onChange={handleChange}>
-        <option></option>
+        <option>World</option>
         {
           countries.map((e, i) => {
             return (
