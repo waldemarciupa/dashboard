@@ -6,6 +6,7 @@ const ButtonIcon = styled.button`
     border-radius: 50%;
     border: none;
     background-color: ${({ theme }) => theme.tertiary};
+    color: ${({ theme }) => theme.primary};
     cursor: pointer;
     box-shadow: 
     0px 3px 5px -1px rgba(0,0,0,0.2), 

@@ -9,7 +9,7 @@ const StyledWrapper = styled.nav`
     left: 0;
     top: 0;
     height: 100vh;
-    width: 20rem;
+    width: 26rem;
     padding: 20px 5px;
     background-color: ${({ theme }) => theme.tertiary};
     color: ${({ theme }) => theme.primary};
@@ -17,7 +17,6 @@ const StyledWrapper = styled.nav`
     flex-direction: column;
     align-items: center;
     box-shadow: 0 2px 5px #ccc;
-
 `;
 
 const StyledLogoLink = styled(NavLink)`
@@ -53,12 +52,12 @@ const StyledNavLink = styled(NavLink)`
 const Menu = () => {
     return (
         <StyledWrapper>
-            <StyledLogoLink to="/" >
+            <StyledLogoLink to="/dashboard/" >
                 <DashboardIcon style={{ fontSize: "5rem" }} />
             </StyledLogoLink>
             <StyledLinksList>
                 <li>
-                    <StyledNavLink exact to='/' activeStyle={active}>Homepage</StyledNavLink>
+                    <StyledNavLink exact to='/dashboard/' activeStyle={active}>Homepage</StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to='/notes' activeStyle={active}>Notes</StyledNavLink>

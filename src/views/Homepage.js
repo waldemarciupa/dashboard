@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Covid from 'components/Covid.js';
+import Weather from 'components/Weather';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
@@ -96,6 +97,7 @@ const Homepage = () => {
 
   return (
     <>
+      <Weather />
       <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
       <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} />
       <StyledFooter>
