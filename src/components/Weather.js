@@ -67,7 +67,7 @@ const Weather = () => {
             .then(res =>
                 setWeather({
                     city: res.name,
-                    temp: calculateToCelscius(res.ain.temp),
+                    temp: calculateToCelscius(res.main.temp),
                     temp_min: calculateToCelscius(res.main.temp_min),
                     temp_max: calculateToCelscius(res.main.temp_max),
                     desciption: res.weather[0].description,
@@ -83,7 +83,7 @@ const Weather = () => {
     return (
         <>
             <StyledWeatherCard>
-                <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} />
+                <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt={weather.desciption} />
                 {weather.temp ? <StyledTemperature>{weather.temp}&deg;C</StyledTemperature> : <h1>Error</h1>}
                 <StyledDescription>{weather.desciption}</StyledDescription>
                 <StyledCity>{weather.city}</StyledCity>

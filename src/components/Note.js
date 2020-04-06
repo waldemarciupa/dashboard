@@ -11,6 +11,10 @@ const StyledNote = styled.div`
     padding: 10px 30px 10px 10px;
     min-width: 250px;
     min-height: 100px;
+
+    &:hover {
+        box-shadow: 0 0 30px -15px rgba(0,0,0,0.5)
+    }
 `;
 
 const StyledButtonIcon = styled(ButtonIcon)`

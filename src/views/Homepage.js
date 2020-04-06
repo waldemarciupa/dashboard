@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Covid from 'components/Covid.js';
 import Weather from 'components/Weather';
 import styled from 'styled-components';
+import News from '../components/News';
+
+const StyledContent = styled.div`
+  max-width: 120rem;
+  margin: 10px auto;
+`;
 
 const StyledFooter = styled.footer`
   position: fixed;
@@ -95,15 +101,18 @@ const Homepage = () => {
     setCoutryName(e.currentTarget.value);
   }
 
+
+
   return (
-    <>
-      <Weather />
+    <StyledContent>
       <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
       <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} />
+      <News />
+      <Weather />
       <StyledFooter>
         <p>The data changes dynamically, so it may be out of date when displayed. Data API provided by <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">Mathdroid</a>.</p>
       </StyledFooter>
-    </>
+    </StyledContent>
   )
 }
 
