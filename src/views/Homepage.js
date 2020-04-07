@@ -4,20 +4,27 @@ import Weather from 'components/Weather';
 import styled from 'styled-components';
 import News from '../components/News';
 
-const StyledWrapper = styled.div`
+const StyledHomepageWrapper = styled.div`
   max-width: 120rem;
   margin: 0 auto;
-  padding: 10px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20rem;
+  grid-gap: 1rem;
 `;
 
-const StyledContent = styled.div`
-  max-width: 95rem;
+const StyledMainContent = styled.div`
+
+`;
+
+const StyledSideContent = styled.div`
 `;
 
 const StyledFooter = styled.footer`
   width: 100%;
   height: 10rem;
-  background-color: ${({ theme }) => theme.tertiary};
+  background-color: #000;
+  color: #e5127d;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,6 +34,10 @@ const StyledFooter = styled.footer`
 const StyledApiWrapper = styled.div`
   & li {
     list-style: none;
+  }
+
+  & a {
+    color: #f68c2f;
   }
 `;
 
@@ -120,27 +131,29 @@ const Homepage = () => {
 
   return (
     <>
-      <StyledWrapper>
-        <StyledContent>
+      <StyledHomepageWrapper>
+        <StyledMainContent>
           <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
-          <Weather />
           {/* <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} /> */}
           <News />
-        </StyledContent>
-      </StyledWrapper>
+        </StyledMainContent>
+        <StyledSideContent>
+          <Weather />
+        </StyledSideContent>
+      </StyledHomepageWrapper>
       <StyledFooter>
         <p>&copy; waldemarciupa 2020</p>
         <StyledApiWrapper>
           <p>Used API:</p>
           <ul>
             <li>
-              <a target="blank" rel="noopener" href="https://openweathermap.org/">https://openweathermap.org</a>
+              <a target="blank" rel="noopener" href="https://openweathermap.org/">openweathermap.org</a>
             </li>
             <li>
-              <a target="blank" rel="noopener" href="https://newsapi.org/">https://newsapi.org</a>
+              <a target="blank" rel="noopener" href="https://newsapi.org/">newsapi.org</a>
             </li>
             <li>
-              <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">https://github.com/mathdroid/covid-19-api</a>
+              <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">mathdroid/covid-19-api</a>
             </li>
           </ul>
         </StyledApiWrapper>

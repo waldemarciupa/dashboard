@@ -12,18 +12,18 @@ navigator.geolocation.getCurrentPosition(position => {
 })
 
 const StyledWeatherCard = styled.div`
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    /* position: fixed; */
+    /* top: 10px; */
+    /* right: 10px; */
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
+    justify-content: space-around;
     background: linear-gradient(#c21500, #ffc500);
     color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px #ccc;
-    width: 150px;
+    width: 100%;
     height: 180px;
 `;
 

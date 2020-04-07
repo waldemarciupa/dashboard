@@ -2,16 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import StyledTitle from 'components/StyledTitle.js';
 
-const StyledWrapper = styled.div`
+const StyledCovidWrapper = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 20px;
+    grid-gap: 3rem;
     align-items: center;
     font-weight: 700;
 `;
-
-
 
 const StyledCard = styled.div`
     display: flex;
@@ -21,7 +19,6 @@ const StyledCard = styled.div`
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px #ccc;
-    /* min-width: 250px; */
     min-height: 100px;
 `;
 
@@ -43,7 +40,7 @@ const Covid = ({ covid, setCovid, countryName }) => {
         <>
             <StyledTitle>Coronavirus pandemic</StyledTitle>
             {/* <p>The data changes dynamically, so it may be out of date when displayed. Data API provided by <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">Mathdroid</a>.</p> */}
-            <StyledWrapper>
+            <StyledCovidWrapper>
 
                 {/* <p>{countryName}</p> */}
 
@@ -65,7 +62,7 @@ const Covid = ({ covid, setCovid, countryName }) => {
                         {(covid.recovered.value).toLocaleString()}
                     </StyledContent>
                 </StyledCard>
-            </StyledWrapper>
+            </StyledCovidWrapper>
         </>
     )
 }

@@ -10,13 +10,14 @@ const StyledWrapper = styled.nav`
     top: 0;
     height: 100vh;
     width: 20rem;
-    padding: 20px 5px;
-    background-color: ${({ theme }) => theme.tertiary};
-    color: ${({ theme }) => theme.primary};
+    padding: 2rem .5rem;
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondary};
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 5px #ccc;
+    /* box-shadow: 0 2px 5px #ccc; */
+    border-right: 1px solid #333333;
 `;
 
 const StyledLogoLink = styled(NavLink)`
@@ -25,7 +26,7 @@ const StyledLogoLink = styled(NavLink)`
     height: 50px;
     margin: 20px;
     background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.tertiary};
+    color: ${({ theme }) => theme.secondary};
 `;
 
 const StyledLinksList = styled.ul`
@@ -38,15 +39,18 @@ const StyledClock = styled.span`
 `
 
 const active = {
-    color: "grey",
+    color: "#e5127d",
 }
 
 const StyledNavLink = styled(NavLink)`
     display: block;
-    text-decoration: none;
-    color: ${({ theme }) => theme.primary};
     padding-bottom: 3rem;
-    font-weight: 600;
+    color: ${({ theme }) => theme.secondary};
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
 `;
 
 const Menu = () => {

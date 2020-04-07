@@ -10,18 +10,15 @@ const StyledTitle = styled.p`
     grid-gap: 20px;
     align-items: center;
 
-    &:before {
+    &:before, &:after {
         content: '';
-        height: 10px;
+        height: 5px;
         display: block;
-        background: linear-gradient(to left, ${({ theme }) => theme.tertiary}, transparent);
+        background: linear-gradient(to left, transparent, #f7c626 15%,#f68c2f 45%, #e5127d 65%, transparent);
     }
 
     &:after {
-        content: '';
-        height: 10px;
-        display: block;
-        background: linear-gradient(to right, ${({ theme }) => theme.tertiary}, transparent);
+        background: linear-gradient(to right, transparent, #f7c626 15%,#f68c2f 45%, #e5127d 65%, transparent);
     }
 `;
 
