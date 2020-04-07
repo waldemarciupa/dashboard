@@ -12,14 +12,16 @@ const StyledCovidWrapper = styled.div`
 `;
 
 const StyledCard = styled.div`
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px #ccc;
-    min-height: 100px;
+    background: #222;
+    border: 1px solid #363636;
+    color: #fff;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 5px #ccc; */
 `;
 
 const StyledCardTitle = styled.p`
@@ -28,7 +30,7 @@ const StyledCardTitle = styled.p`
 
 const StyledContent = styled.p`
     padding-top: 10px; 
-    color: ${({ color }) => color ? color : "#000"};
+    color: ${({ color }) => color ? color : "#fff"};
     font-size: 2rem;
 `;
 
