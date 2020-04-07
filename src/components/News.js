@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import StyledTitle from 'components/StyledTitle.js';
 
 const StyledNewsWrapper = styled.div`
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 20px;
     align-items: center;
 `;
 
 const StyledNewsCard = styled.div`
+   
 `;
 
 const StylednNewsLink = styled.a`
     text-decoration: none;
     color: ${({ theme }) => theme.secondary};
     font-size: 1.6rem;
-    
 `;
 
 const StyledNewsImageBox = styled.div`
@@ -34,10 +35,14 @@ const StylednNewsTitle = styled.p`
     position: absolute;
     left: 0px;
     bottom: 0px;
-    padding: 5px;
-    font-size: 1.8rem;
+    padding: 2px 5px 0px 5px;
+    font-size: 1.4rem;
     font-weight: 600;
     background-color: rgba(0,0,0,0.8);
+
+    &:hover {
+    text-decoration: underline;
+    }
 
 `;
 
@@ -62,25 +67,29 @@ const News = () => {
     }, [])
 
     return (
-        <StyledNewsWrapper>
-            {
-                news.map((e, i) => {
-                    return (
-                        <StyledNewsCard key={i}>
-                            <StylednNewsLink target="blank" rel="noopener noreferrer" href={e.url} >
-                                <StyledNewsImageBox>
-                                    <StyledNewsImage src={e.urlToImage} />
-                                    <StylednNewsTitle>
-                                        {e.title}
-                                    </StylednNewsTitle>
-                                </StyledNewsImageBox>
-                            </StylednNewsLink>
-                        </StyledNewsCard>
-                    )
+        <>
+            <StyledTitle>News</StyledTitle>
+            <StyledNewsWrapper>
+                {
+                    news.map((e, i) => {
+                        return (
+                            <StyledNewsCard key={i}>
+                                <StylednNewsLink target="blank" rel="noopener noreferrer" href={e.url} >
+                                    <StyledNewsImageBox>
+                                        <StyledNewsImage src={e.urlToImage} />
+                                        <StylednNewsTitle>
+                                            {/* {e.title.substring(0, 80)}... */}
+                                            {e.title}
+                                        </StylednNewsTitle>
+                                    </StyledNewsImageBox>
+                                </StylednNewsLink>
+                            </StyledNewsCard>
+                        )
 
-                })
-            }
-        </StyledNewsWrapper>
+                    })
+                }
+            </StyledNewsWrapper>
+        </>
     )
 }
 

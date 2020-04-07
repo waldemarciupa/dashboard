@@ -9,7 +9,7 @@ const StyledWrapper = styled.nav`
     left: 0;
     top: 0;
     height: 100vh;
-    width: 26rem;
+    width: 20rem;
     padding: 20px 5px;
     background-color: ${({ theme }) => theme.tertiary};
     color: ${({ theme }) => theme.primary};

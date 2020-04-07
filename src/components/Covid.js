@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import StyledTitle from 'components/StyledTitle.js';
 
 const StyledWrapper = styled.div`
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 20px;
     align-items: center;
-    padding: 3rem;
     font-weight: 700;
 `;
+
+
 
 const StyledCard = styled.div`
     display: flex;
@@ -18,18 +21,18 @@ const StyledCard = styled.div`
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px #ccc;
-    min-width: 250px;
+    /* min-width: 250px; */
     min-height: 100px;
 `;
 
-const StyledTitle = styled.p`
-    font-size: 2rem;
+const StyledCardTitle = styled.p`
+    font-size: 1.8rem;
 `;
 
 const StyledContent = styled.p`
     padding-top: 10px; 
     color: ${({ color }) => color ? color : "#000"};
-    font-size: 3rem;
+    font-size: 2rem;
 `;
 
 const Covid = ({ covid, setCovid, countryName }) => {
@@ -37,29 +40,33 @@ const Covid = ({ covid, setCovid, countryName }) => {
     if (!covid) return <h1>Loading...</h1>
 
     return (
-        <StyledWrapper>
+        <>
+            <StyledTitle>Coronavirus pandemic</StyledTitle>
+            {/* <p>The data changes dynamically, so it may be out of date when displayed. Data API provided by <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">Mathdroid</a>.</p> */}
+            <StyledWrapper>
 
-            <p>{countryName}</p>
+                {/* <p>{countryName}</p> */}
 
-            <StyledCard>
-                <StyledTitle>Total infected: </StyledTitle>
-                <StyledContent color="red">
-                    {(covid.confirmed.value).toLocaleString()}
-                </StyledContent>
-            </StyledCard>
-            <StyledCard>
-                <StyledTitle>Total deaths: </StyledTitle>
-                <StyledContent>
-                    {(covid.deaths.value).toLocaleString()}
-                </StyledContent>
-            </StyledCard>
-            <StyledCard>
-                <StyledTitle>Total recovered: </StyledTitle>
-                <StyledContent color="green">
-                    {(covid.recovered.value).toLocaleString()}
-                </StyledContent>
-            </StyledCard>
-        </StyledWrapper>
+                <StyledCard>
+                    <StyledCardTitle>Total infected: </StyledCardTitle>
+                    <StyledContent color="red">
+                        {(covid.confirmed.value).toLocaleString()}
+                    </StyledContent>
+                </StyledCard>
+                <StyledCard>
+                    <StyledCardTitle>Total deaths: </StyledCardTitle>
+                    <StyledContent>
+                        {(covid.deaths.value).toLocaleString()}
+                    </StyledContent>
+                </StyledCard>
+                <StyledCard>
+                    <StyledCardTitle>Total recovered: </StyledCardTitle>
+                    <StyledContent color="green">
+                        {(covid.recovered.value).toLocaleString()}
+                    </StyledContent>
+                </StyledCard>
+            </StyledWrapper>
+        </>
     )
 }
 

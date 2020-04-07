@@ -4,15 +4,30 @@ import Weather from 'components/Weather';
 import styled from 'styled-components';
 import News from '../components/News';
 
-const StyledContent = styled.div`
+const StyledWrapper = styled.div`
   max-width: 120rem;
-  margin: 10px auto;
+  margin: 0 auto;
+  padding: 10px;
+`;
+
+const StyledContent = styled.div`
+  max-width: 95rem;
 `;
 
 const StyledFooter = styled.footer`
-  position: fixed;
-  bottom: 5px;
-  right: 10px;
+  width: 100%;
+  height: 10rem;
+  background-color: ${({ theme }) => theme.tertiary};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+`;
+
+const StyledApiWrapper = styled.div`
+  & li {
+    list-style: none;
+  }
 `;
 
 const Countries = ({ countries, handleChange }) => {
@@ -104,15 +119,33 @@ const Homepage = () => {
 
 
   return (
-    <StyledContent>
-      <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
-      <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} />
-      <News />
-      <Weather />
+    <>
+      <StyledWrapper>
+        <StyledContent>
+          <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
+          <Weather />
+          {/* <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} /> */}
+          <News />
+        </StyledContent>
+      </StyledWrapper>
       <StyledFooter>
-        <p>The data changes dynamically, so it may be out of date when displayed. Data API provided by <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">Mathdroid</a>.</p>
+        <p>&copy; waldemarciupa 2020</p>
+        <StyledApiWrapper>
+          <p>Used API:</p>
+          <ul>
+            <li>
+              <a target="blank" rel="noopener" href="https://openweathermap.org/">https://openweathermap.org</a>
+            </li>
+            <li>
+              <a target="blank" rel="noopener" href="https://newsapi.org/">https://newsapi.org</a>
+            </li>
+            <li>
+              <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">https://github.com/mathdroid/covid-19-api</a>
+            </li>
+          </ul>
+        </StyledApiWrapper>
       </StyledFooter>
-    </StyledContent>
+    </>
   )
 }
 

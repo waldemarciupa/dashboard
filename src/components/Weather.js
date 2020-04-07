@@ -12,7 +12,7 @@ navigator.geolocation.getCurrentPosition(position => {
 })
 
 const StyledWeatherCard = styled.div`
-    position: absolute;
+    position: fixed;
     top: 10px;
     right: 10px;
     display: flex;
@@ -23,8 +23,8 @@ const StyledWeatherCard = styled.div`
     color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px #ccc;
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 180px;
 `;
 
 const StyledTemperature = styled.p`
@@ -77,7 +77,6 @@ const Weather = () => {
                 }),
             )
             .catch(err => console.log(err))
-        // if (res.name) return null;
     }, [])
 
     return (
