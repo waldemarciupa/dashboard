@@ -66,9 +66,9 @@ const News = () => {
         fetch(req)
             .then(res => res.json())
             .then(res => {
-                console.log(res);
-
                 setNews(res.articles)
+                console.log(res.articles)
+
             }
             )
             .catch(err => console.log(err))

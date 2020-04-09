@@ -7,7 +7,7 @@ const StyledNote = styled.div`
     position: relative;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 5px #ccc;
+    /* box-shadow: 0 2px 5px #ccc; */
     padding: 10px 30px 10px 10px;
     min-width: 250px;
     min-height: 100px;

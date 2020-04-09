@@ -36,6 +36,7 @@ const StyledLinksList = styled.ul`
 
 const StyledClock = styled.span`
     margin-top: auto;
+    font-size: 1.6rem;
 `
 
 const active = {

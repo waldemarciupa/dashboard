@@ -5,8 +5,8 @@ const ButtonIcon = styled.button`
     height: 38px;
     border-radius: 50%;
     border: none;
-    background-color: ${({ theme }) => theme.tertiary};
-    color: ${({ theme }) => theme.primary};
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.quaternary};
     cursor: pointer;
     box-shadow: 
     0px 3px 5px -1px rgba(0,0,0,0.2), 
@@ -15,8 +15,8 @@ const ButtonIcon = styled.button`
     transition: all 0.4s ease 0s;
 
     &:hover {
-        color: ${({ theme }) => theme.tertiary};
-        background: ${({ theme }) => theme.primary};
+        color: ${({ theme }) => theme.primary};
+        background: ${({ theme }) => theme.quaternary};
     }
 `;
 

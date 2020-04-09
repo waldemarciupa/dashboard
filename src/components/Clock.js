@@ -9,7 +9,7 @@ const Clock = () => {
     }, 1000)
 
     return (
-        <h1>{time}</h1>
+        <h4>{time}</h4>
     )
 }
 

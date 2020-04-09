@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Covid from 'components/Covid.js';
 import Weather from 'components/Weather';
 import styled from 'styled-components';
-import News from '../components/News';
+import News from 'components/News';
+import Currency from 'components/Currency';
 
 const StyledHomepageWrapper = styled.div`
   max-width: 120rem;
@@ -139,6 +140,7 @@ const Homepage = () => {
         </StyledMainContent>
         <StyledSideContent>
           <Weather />
+          <Currency />
         </StyledSideContent>
       </StyledHomepageWrapper>
       <StyledFooter>

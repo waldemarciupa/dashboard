@@ -10,7 +10,7 @@ const StyledForm = styled.form`
     background: #fff;
     padding: 15px;
     border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
+    /* box-shadow: 0 2px 5px #ccc; */
 `;
 
 const StyledInput = styled.input`
