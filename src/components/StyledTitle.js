@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledTitle = styled.p`
-    margin: 1rem auto;
+    margin: 2rem auto;
     font-size: 2rem;
     grid-column: 1/-1;
     display: grid;

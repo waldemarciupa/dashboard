@@ -67,12 +67,12 @@ const Menu = () => {
                 <li>
                     <StyledNavLink to='/notes' activeStyle={active}>Notes</StyledNavLink>
                 </li>
-                <li>
+                {/* <li>
                     <StyledNavLink to='/weather' activeStyle={active}>Weather</StyledNavLink>
                 </li>
                 <li>
                     <StyledNavLink to='/currencies' activeStyle={active}>Currencies</StyledNavLink>
-                </li>
+                </li> */}
             </StyledLinksList>
             <StyledClock>
                 <Clock />

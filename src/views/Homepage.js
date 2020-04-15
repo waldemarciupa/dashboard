@@ -4,14 +4,15 @@ import Weather from 'components/Weather';
 import styled from 'styled-components';
 import News from 'components/News';
 import Currency from 'components/Currency';
+import Button from 'components/Button';
 
 const StyledHomepageWrapper = styled.div`
   max-width: 120rem;
   margin: 0 auto;
   padding: 1rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 20rem;
-  grid-gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) 15rem;
+  grid-gap: 3rem;
 `;
 
 const StyledMainContent = styled.div`
@@ -97,7 +98,7 @@ const Homepage = () => {
       );
   }, [])
 
-  const [countries, setCountries] = useState([])
+  const [countries, setCountries] = useState([]);
   const [countryName, setCoutryName] = useState('World');
 
   useEffect(() => {
@@ -146,7 +147,7 @@ const Homepage = () => {
       <StyledFooter>
         <p>&copy; waldemarciupa 2020</p>
         <StyledApiWrapper>
-          <p>Used API:</p>
+          <p>Used APIs:</p>
           <ul>
             <li>
               <a target="blank" rel="noopener" href="https://openweathermap.org/">openweathermap.org</a>
@@ -156,6 +157,9 @@ const Homepage = () => {
             </li>
             <li>
               <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">mathdroid/covid-19-api</a>
+            </li>
+            <li>
+              <a target="blank" rel="noopener" href="https://https://api.nbp.pl/">NBP Web API</a>
             </li>
           </ul>
         </StyledApiWrapper>

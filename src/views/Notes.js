@@ -14,7 +14,7 @@ const StyledWrapper = styled.div`
 
 const Notes = () => {
 
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
 
     const addNote = (newNote) => {
         setNotes(prevNotes => {
@@ -29,11 +29,13 @@ const Notes = () => {
                 return index !== id;
             })
         })
+
+        localStorage.setItem("notes", JSON.stringify(notes))
     }
 
     return (
         <>
-            <CreateNote onAdd={addNote} />
+            <CreateNote onAdd={addNote} notes={notes} />
             <StyledWrapper>
                 {
                     notes.map((noteItem, index) => {

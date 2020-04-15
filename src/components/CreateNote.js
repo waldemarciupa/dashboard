@@ -33,7 +33,7 @@ const StyledTextarea = styled.textarea`
     resize: none;
 `;
 
-const CreateNote = ({ onAdd }) => {
+const CreateNote = ({ onAdd, notes }) => {
 
     const [isExpanded, setExpanded] = useState(false);
 
@@ -51,6 +51,7 @@ const CreateNote = ({ onAdd }) => {
                 [name]: value
             };
         });
+
     }
 
     const submitNote = (event) => {
@@ -59,10 +60,14 @@ const CreateNote = ({ onAdd }) => {
         if (!(note.content || note.title)) return null;
 
         onAdd(note);
+
         setNote({
             title: "",
             content: ""
         });
+
+        localStorage.setItem("notes", JSON.stringify(notes))
+
     }
 
     const expand = () => {

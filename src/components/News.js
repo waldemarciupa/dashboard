@@ -67,7 +67,6 @@ const News = () => {
             .then(res => res.json())
             .then(res => {
                 setNews(res.articles)
-                console.log(res.articles)
 
             }
             )

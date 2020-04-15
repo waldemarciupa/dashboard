@@ -14,8 +14,8 @@ const Root = () => {
                 <Switch>
                     <Route exact path='/dashboard/' component={Homepage} />
                     <Route path='/notes' component={Notes} />
-                    <Route path='/weather' component={WeatherView} />
-                    <Route path='/currencies' component={Currencies} />
+                    {/* <Route path='/weather' component={WeatherView} />
+                    <Route path='/currencies' component={Currencies} /> */}
                     <Route path='*' component={NotFound} />
                 </Switch>
             </MainTemplate>

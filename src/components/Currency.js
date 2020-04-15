@@ -13,11 +13,9 @@ import DKK from 'assets/images/DKK.png';
 import NOK from 'assets/images/NOK.png';
 import SEK from 'assets/images/SEK.png';
 
-
-
-
 const StyledCurencyWrapper = styled.div`
     color: #fff;
+    margin: 7rem .5rem 0;
 `;
 
 const StyledCurency = styled.div`
@@ -57,31 +55,24 @@ const Currency = () => {
                     return (
                         <StyledCurency key={e.code}>
                             <StyledCurencyTitle>
-                                {e.code === "GBP" && <img src={GBP} />}
-                                {e.code === "USD" && <img src={USD} />}
-                                {e.code === "AUD" && <img src={AUD} />}
-                                {e.code === "CAD" && <img src={CAD} />}
-                                {e.code === "EUR" && <img src={EUR} />}
-                                {e.code === "HUF" && <img src={HUF} />}
-                                {e.code === "CHF" && <img src={CHF} />}
-                                {e.code === "JPY" && <img src={JPY} />}
-                                {e.code === "CZK" && <img src={CZK} />}
-                                {e.code === "DKK" && <img src={DKK} />}
-                                {e.code === "NOK" && <img src={NOK} />}
-                                {e.code === "SEK" && <img src={SEK} />}
-
-
-
-
-
-
-
+                                {e.code === "GBP" && <img src={GBP} alt="GBP" />}
+                                {e.code === "USD" && <img src={USD} alt="USD" />}
+                                {e.code === "AUD" && <img src={AUD} alt="AUD" />}
+                                {e.code === "CAD" && <img src={CAD} alt="CAD" />}
+                                {e.code === "EUR" && <img src={EUR} alt="EUR" />}
+                                {e.code === "HUF" && <img src={HUF} alt="HUF" />}
+                                {e.code === "CHF" && <img src={CHF} alt="CHF" />}
+                                {e.code === "JPY" && <img src={JPY} alt="JPY" />}
+                                {e.code === "CZK" && <img src={CZK} alt="CZK" />}
+                                {e.code === "DKK" && <img src={DKK} alt="DKK" />}
+                                {e.code === "NOK" && <img src={NOK} alt="NOK" />}
+                                {e.code === "SEK" && <img src={SEK} alt="SEK" />}
 
                                 <p>{e.code}</p>
                             </StyledCurencyTitle>
                             <StyledCurrencyValue>
                                 {/* <p>Bid: {e.bid}</p> */}
-                                <p> {e.ask}</p>
+                                <p> {e.ask}zł</p>
                             </StyledCurrencyValue>
 
                         </StyledCurency>
