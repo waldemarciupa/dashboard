@@ -52,6 +52,7 @@ const Currency = () => {
         <StyledCurencyWrapper>
             {
                 data.map((e, i) => {
+                    const askToFixed = e.ask;
                     return (
                         <StyledCurency key={e.code}>
                             <StyledCurencyTitle>
@@ -72,7 +73,7 @@ const Currency = () => {
                             </StyledCurencyTitle>
                             <StyledCurrencyValue>
                                 {/* <p>Bid: {e.bid}</p> */}
-                                <p> {e.ask}zł</p>
+                                <p> {askToFixed.toFixed(2)} zł</p>
                             </StyledCurrencyValue>
 
                         </StyledCurency>

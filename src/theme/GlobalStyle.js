@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Montserrat", sans-serif;
         background-color: #000;
         padding-left: 20rem;
+
+        @media (max-width: 768px) {
+            padding: 7rem 0 0 0 ;
+        }
     }
 `;
 

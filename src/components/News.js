@@ -62,16 +62,16 @@ const News = () => {
         '&pageSize=12';
     const req = new Request(url);
 
-    useEffect(() => {
-        fetch(req)
-            .then(res => res.json())
-            .then(res => {
-                setNews(res.articles)
+    // useEffect(() => {
+    //     fetch(req)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             setNews(res.articles)
 
-            }
-            )
-            .catch(err => console.log(err))
-    }, [req])
+    //         }
+    //         )
+    //         .catch(err => console.log(err))
+    // }, [req])
 
     return (
         <>

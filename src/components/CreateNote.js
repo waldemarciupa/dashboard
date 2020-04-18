@@ -6,11 +6,15 @@ import AddIcon from '@material-ui/icons/Add';
 const StyledForm = styled.form`
     position: relative;
     max-width: 480px;
-    margin: 30px auto 20px auto;
+    margin: 3rem auto 2rem auto;
     background: #fff;
     padding: 15px;
     border-radius: 7px;
     /* box-shadow: 0 2px 5px #ccc; */
+
+    @media (max-width: 485px) {
+        margin: 3rem 2rem 2rem 2rem;
+  }
 `;
 
 const StyledInput = styled.input`

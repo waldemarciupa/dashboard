@@ -12,6 +12,10 @@ const StyledHomepageWrapper = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1fr) 15rem;
   grid-gap: 3rem;
+
+  @media (max-width: 485px) {
+    display: block;
+  }
 `;
 
 const StyledMainContent = styled.div`
@@ -19,6 +23,10 @@ const StyledMainContent = styled.div`
 `;
 
 const StyledSideContent = styled.div`
+  
+  @media (max-width: 485px) {
+        margin: 3rem;
+  }
 `;
 
 const StyledFooter = styled.footer`
@@ -30,6 +38,10 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
+
+  @media (max-width: 485px) {
+    display: block;
+  }
 `;
 
 const StyledApiWrapper = styled.div`
