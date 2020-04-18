@@ -20,7 +20,6 @@ const StyledWrapper = styled.nav`
     border-right: 1px solid #333333;
 
     @media (max-width: 768px) {
-        z-index: 1;
         height: 7rem;
         width: 100vw;
         display: flex;
@@ -45,17 +44,20 @@ const StyledLinksList = styled.ul`
     margin-top: 10rem;
 
     @media (max-width: 768px) {
+
         margin: 0;
-        padding-top: 3rem;
         display: flex;
         flex-direction: column;
-        text-align: center;
-        /* display: none; */
-        position: fixed;
-        top: 7rem;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
         left: 0;
         background: black;
         width: 100vw;
+        height: 100vh;
+        transition: all 0.3s linear;
+        transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
     }
 `;
 
@@ -82,9 +84,14 @@ const StyledNavLink = styled(NavLink)`
     font-weight: 500;
     letter-spacing: .2rem;
 
+    @media (max-width: 768px) {
+        font-size: 3rem;
+
+    }
 `;
 
 const Hamburger = styled.button`
+    z-index: 10;
     padding: 10px;
     display: none;
     background-color: transparent;
@@ -107,12 +114,13 @@ const HamburgerBox = styled.span`
 const HamburgerInner = styled.span`
     width: 100%;
     height: 3px;
-    background-color: white;
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
     transition: background-color .1s .2s ease-in-out;
+    background-color: ${({ open }) => open ? ' transparent' : ' white'};
+
 
     &:before,
     &:after {
@@ -120,41 +128,44 @@ const HamburgerInner = styled.span`
         height: 3px;
         background-color: white;
         position: absolute;
-    content: '';
+        content: '';
         left: 0;
         transition: transform .2s .2s ease-in-out;
     }
 
     &:before {
         top: -10px;
+        transform: ${({ open }) => open ? 'translateY(10px) rotate(45deg)' : 'translateY(0) rotate(0)'};
     }
 
     &:after {
         top: 10px;
+        transform: ${({ open }) => open ? 'translateY(-10px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
     }
 
 `;
 
 
+
 const Menu = () => {
 
-    const [menu, setMenu] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClick = () => {
-        setMenu(!menu);
+        setOpen(!open);
     }
 
     return (
         <StyledWrapper>
-            <StyledLogoLink onClick={handleClick} to="/dashboard/" >
+            <StyledLogoLink to="/dashboard/" >
                 <DashboardIcon style={{ fontSize: "5rem" }} />
             </StyledLogoLink>
-            <Hamburger onClick={handleClick}>
-                <HamburgerBox on>
-                    <HamburgerInner />
+            <Hamburger open={open} onClick={handleClick}>
+                <HamburgerBox open={open}>
+                    <HamburgerInner open={open} />
                 </HamburgerBox>
             </Hamburger>
-            {menu ? <StyledLinksList>
+            <StyledLinksList open={open}>
                 <li>
                     <StyledNavLink onClick={handleClick} exact to='/dashboard/' activeStyle={active}>Homepage</StyledNavLink>
                 </li>
@@ -167,7 +178,7 @@ const Menu = () => {
                 <li>
                     <StyledNavLink onClick={handleClick} to='/currencies' activeStyle={active}>Currencies</StyledNavLink>
                 </li>
-            </StyledLinksList> : null}
+            </StyledLinksList>
             <StyledClock>
                 <Clock />
             </StyledClock>

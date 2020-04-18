@@ -10,11 +10,14 @@ const StyledWrapper = styled.div`
     grid-gap: 20px;
     align-items: center;
     padding: 3rem;
+
+    @media (max-width: 485px) {
+        z-index: 9999;
+        position: inherit;
+    }
 `;
 
 const Notes = () => {
-
-
 
     const localDb = localStorage.getItem("notes");
 
@@ -30,8 +33,6 @@ const Notes = () => {
         setNotes(prevNotes => {
             return [...prevNotes, newNote];
         })
-
-
     }
 
     const deleteNote = (id) => {
@@ -41,8 +42,6 @@ const Notes = () => {
                 return index !== id;
             })
         })
-
-
     }
 
     return (

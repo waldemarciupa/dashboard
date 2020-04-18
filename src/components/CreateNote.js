@@ -14,7 +14,9 @@ const StyledForm = styled.form`
 
     @media (max-width: 485px) {
         margin: 3rem 2rem 2rem 2rem;
-  }
+        z-index: 9999;
+        position: inherit;
+    }
 `;
 
 const StyledInput = styled.input`
