@@ -1,3 +1,7 @@
+This project is simple React App with dashboard of news, coronavirus pandemic statistics, weather widget and currencies widget. What's more you can check notes route where you can play with Notes App.
+
+This webpage is live on - https://waldemarciupa.github.io/dashboard/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
