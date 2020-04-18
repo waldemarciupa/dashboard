@@ -4,7 +4,6 @@ import Weather from 'components/Weather';
 import styled from 'styled-components';
 import News from 'components/News';
 import Currency from 'components/Currency';
-import Button from 'components/Button';
 
 const StyledHomepageWrapper = styled.div`
   max-width: 120rem;
@@ -43,28 +42,28 @@ const StyledApiWrapper = styled.div`
   }
 `;
 
-const Countries = ({ countries, handleChange }) => {
+// const Countries = ({ countries, handleChange }) => {
 
-  return (
-    <>
-      <select onChange={handleChange}>
-        <option>World</option>
-        {
-          countries.map((e, i) => {
-            return (
-              <option
-                key={i}
-                value={e.ios3}>
-                {e.name}
-              </option>
-            )
-          }
-          )
-        }
-      </select>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <select onChange={handleChange}>
+//         <option>World</option>
+//         {
+//           countries.map((e, i) => {
+//             return (
+//               <option
+//                 key={i}
+//                 value={e.ios3}>
+//                 {e.name}
+//               </option>
+//             )
+//           }
+//           )
+//         }
+//       </select>
+//     </>
+//   )
+// }
 
 const Homepage = () => {
 
@@ -98,36 +97,36 @@ const Homepage = () => {
       );
   }, [])
 
-  const [countries, setCountries] = useState([]);
-  const [countryName, setCoutryName] = useState('World');
+  // const [countries, setCountries] = useState([]);
+  // const [countryName, setCoutryName] = useState('World');
 
   useEffect(() => {
     fetch('https://covid19.mathdro.id/api/countries/')
       .then(res => res.json())
-      .then(res => setCountries(res.countries)
-      )
+      // .then(res => setCountries(res.countries)
+      // )
       .catch(err => console.log(err))
   }, [])
 
-  const handleChange = (e) => {
+  // const handleChange = (e) => {
 
-    fetch(`https://covid19.mathdro.id/api/countries/${e.currentTarget.value}`)
-      .then(res => res.json())
-      .then(res => setCovid({
-        confirmed: {
-          value: res.confirmed.value,
-        },
-        recovered: {
-          value: res.recovered.value,
-        },
-        deaths: {
-          value: res.deaths.value,
-        },
-      }))
-      .catch(err => console.log(err))
+  //   fetch(`https://covid19.mathdro.id/api/countries/${e.currentTarget.value}`)
+  //     .then(res => res.json())
+  //     .then(res => setCovid({
+  //       confirmed: {
+  //         value: res.confirmed.value,
+  //       },
+  //       recovered: {
+  //         value: res.recovered.value,
+  //       },
+  //       deaths: {
+  //         value: res.deaths.value,
+  //       },
+  //     }))
+  //     .catch(err => console.log(err))
 
-    setCoutryName(e.currentTarget.value);
-  }
+  //   setCoutryName(e.currentTarget.value);
+  // }
 
 
 
@@ -135,7 +134,8 @@ const Homepage = () => {
     <>
       <StyledHomepageWrapper>
         <StyledMainContent>
-          <Covid covid={covid} setCovid={setCovid} countryName={countryName} />
+          <Covid covid={covid} setCovid={setCovid} />
+          {/* countryName={countryName} to propsy do Covid */}
           {/* <Countries countries={countries} setCountries={setCountries} handleChange={handleChange} /> */}
           <News />
         </StyledMainContent>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateNote from 'components/CreateNote.js';
 import Note from "components/Note";
 import styled from 'styled-components';
@@ -14,12 +14,24 @@ const StyledWrapper = styled.div`
 
 const Notes = () => {
 
-    const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")));
+
+
+    const localDb = localStorage.getItem("notes");
+
+    const startNotes = (localDb.length > 0) ? JSON.parse(localDb) : [];
+
+    const [notes, setNotes] = useState(startNotes);
+
+    useEffect(() => {
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }, [notes])
 
     const addNote = (newNote) => {
         setNotes(prevNotes => {
             return [...prevNotes, newNote];
         })
+
+
     }
 
     const deleteNote = (id) => {
@@ -30,7 +42,7 @@ const Notes = () => {
             })
         })
 
-        localStorage.setItem("notes", JSON.stringify(notes))
+
     }
 
     return (

@@ -54,6 +54,7 @@ const CreateNote = ({ onAdd, notes }) => {
 
     }
 
+
     const submitNote = (event) => {
         event.preventDefault();
 
@@ -66,9 +67,8 @@ const CreateNote = ({ onAdd, notes }) => {
             content: ""
         });
 
-        localStorage.setItem("notes", JSON.stringify(notes))
-
     }
+
 
     const expand = () => {
         setExpanded(true);

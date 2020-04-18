@@ -19,16 +19,23 @@ const StyledCity = styled.p`
     font-size: 1.4rem;
 `;
 
-let long;
-let lat;
-
-navigator.geolocation.getCurrentPosition(position => {
-    long = position.coords.longitude;
-    lat = position.coords.latitude;
-})
 
 
 const Weather = () => {
+
+    const [long, setLong] = useState('');
+    const [lat, setLat] = useState('');
+
+    useEffect(() => {
+
+        navigator.geolocation.getCurrentPosition(position => {
+            setLong(position.coords.longitude)
+            setLat(position.coords.latitude)
+        }, (err) => {
+            console.log(err);
+        })
+
+    }, [])
 
     const kelvin = 273.15;
 
@@ -51,6 +58,8 @@ const Weather = () => {
 
     useEffect(() => {
 
+        if (lat.length === 0 || long.length === 0) return;
+
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_key}`)
             .then(res => res.json())
             .then(res =>
@@ -66,7 +75,9 @@ const Weather = () => {
                 }),
             )
             .catch(err => console.log(err))
-    }, [])
+    }, [lat, long])
+
+    if (!weather.icon) return '';
 
     return (
         <>

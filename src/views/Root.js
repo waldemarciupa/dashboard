@@ -3,8 +3,8 @@ import MainTemplate from 'templates/MainTemplate';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Homepage from 'views/Homepage';
 import Notes from 'views/Notes';
-import WeatherView from 'views/WeatherView';
-import Currencies from 'views/Currencies';
+// import WeatherView from 'views/WeatherView';
+// import Currencies from 'views/Currencies';
 import NotFound from 'views/NotFound';
 
 const Root = () => {
