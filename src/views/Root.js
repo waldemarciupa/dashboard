@@ -12,7 +12,7 @@ const Root = () => {
         <Router>
             <MainTemplate>
                 <Switch>
-                    <Route exact path='/dashboard' component={Homepage} />
+                    <Route exact path='/' component={Homepage} />
                     <Route path='/notes' component={Notes} />
                     <Route path='/weather' component={WeatherView} />
                     <Route path='/currencies' component={Currencies} />

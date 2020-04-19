@@ -67,7 +67,7 @@ const News = () => {
     const url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
         'apiKey=954e1c4786714a47a2c676012c180c44' +
-        '&pageSize=12';
+        '&pageSize=15';
 
     const req = new Request(url);
 
