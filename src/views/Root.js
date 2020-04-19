@@ -12,10 +12,10 @@ const Root = () => {
         <Router>
             <MainTemplate>
                 <Switch>
-                    <Route exact path='/' component={Homepage} />
-                    <Route path='/notes' component={Notes} />
-                    <Route path='/weather' component={WeatherView} />
-                    <Route path='/currencies' component={Currencies} />
+                    <Route exact path='/dashboard/' component={Homepage} />
+                    <Route path='/dashboard/notes' component={Notes} />
+                    <Route path='/dashboard/weather' component={WeatherView} />
+                    <Route path='/dashboard/currencies' component={Currencies} />
                     <Route path='*' component={NotFound} />
                 </Switch>
             </MainTemplate>

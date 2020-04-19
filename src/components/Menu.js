@@ -157,7 +157,7 @@ const Menu = () => {
 
     return (
         <StyledWrapper>
-            <StyledLogoLink to="/" >
+            <StyledLogoLink to="/dashboard/" >
                 <DashboardIcon style={{ fontSize: "5rem" }} />
             </StyledLogoLink>
             <Hamburger open={open} onClick={handleClick}>
@@ -167,16 +167,16 @@ const Menu = () => {
             </Hamburger>
             <StyledLinksList open={open}>
                 <li>
-                    <StyledNavLink onClick={handleClick} exact to='/' activeStyle={active}>Homepage</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} exact to='/dashboard/' activeStyle={active}>Homepage</StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink onClick={handleClick} to='/notes' activeStyle={active}>Notes</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} to='/dashboard/notes' activeStyle={active}>Notes</StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink onClick={handleClick} to='/weather' activeStyle={active}>Weather</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} to='/dashboard/weather' activeStyle={active}>Weather</StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink onClick={handleClick} to='/currencies' activeStyle={active}>Currencies</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} to='/dashboard/currencies' activeStyle={active}>Currencies</StyledNavLink>
                 </li>
             </StyledLinksList>
             <StyledClock>
