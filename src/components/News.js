@@ -8,17 +8,11 @@ const StyledNewsWrapper = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: .2rem;
     padding: .2rem;
-    background: linear-gradient(90deg, #f7c626 15%, #f68c2f 40%, #e5127d 85%);
-
-    @media (max-width: 525px) {
-        z-index: -1;
-    }
+    background: linear-gradient(90deg, #f7c626 15%, #f68c2f 40%, #e5127d 85%);   
 `;
 
 const StyledNewsCard = styled.div`
-    @media (max-width: 525px) {
-        z-index: -1;
-    }
+    
 `;
 
 const StylednNewsLink = styled.a`
@@ -33,10 +27,16 @@ const StyledNewsImage = styled.div`
     background-repeat: no-repeat; 
     background-size: cover; 
     position: relative;
+
+
+    @media (max-width: 768px) {
+       
+    }
+    
 `;
 
 const StyledNewsModal = styled.div`
-    position: absolute;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -47,7 +47,7 @@ const StyledNewsModal = styled.div`
     &:hover {
     background: rgba(0,0,0,0.00) linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%);
     }
-
+    
 `;
 
 const StylednNewsTitle = styled.p`
@@ -57,6 +57,7 @@ const StylednNewsTitle = styled.p`
     padding: 2px 5px 0px 5px;
     font-size: 1.2rem;
     font-weight: 600;
+    
 `;
 
 const News = () => {
@@ -65,7 +66,7 @@ const News = () => {
 
     const url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
-        'apiKey=11ef5bf7a6f04d5995125a5044948ee2' +
+        'apiKey=954e1c4786714a47a2c676012c180c44' +
         '&pageSize=12';
 
     const req = new Request(url);

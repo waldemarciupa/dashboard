@@ -27,6 +27,7 @@ const StyledWrapper = styled.nav`
         justify-content: space-between;
         border-bottom: 1px solid #333333;
         padding-right: 1rem;
+        z-index: 100;
     }
 `;
 
@@ -44,7 +45,7 @@ const StyledLinksList = styled.ul`
     margin-top: 10rem;
 
     @media (max-width: 768px) {
-
+        z-index: 1;
         margin: 0;
         display: flex;
         flex-direction: column;
