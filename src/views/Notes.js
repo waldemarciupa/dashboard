@@ -21,7 +21,7 @@ const Notes = () => {
 
     const localDb = localStorage.getItem("notes");
 
-    const startNotes = (localDb.length > 0) ? JSON.parse(localDb) : [];
+    const startNotes = (localStorage.length > 0) ? JSON.parse(localDb) : [];
 
     const [notes, setNotes] = useState(startNotes);
 
