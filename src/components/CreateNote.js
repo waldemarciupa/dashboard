@@ -14,7 +14,6 @@ const StyledForm = styled.form`
 
     @media (max-width: 485px) {
         margin: 3rem 2rem 2rem 2rem;
-        z-index: 9999;
         position: inherit;
     }
 `;
@@ -57,7 +56,6 @@ const CreateNote = ({ onAdd, notes }) => {
                 [name]: value
             };
         });
-
     }
 
 
@@ -75,33 +73,30 @@ const CreateNote = ({ onAdd, notes }) => {
 
     }
 
-
     const expand = () => {
         setExpanded(true);
     }
 
     return (
-        <div>
-            <StyledForm>
-                {isExpanded && <StyledInput
-                    name="title"
-                    onChange={handleChange}
-                    value={note.title}
-                    placeholder="Title"
-                />}
-                <StyledTextarea
-                    name="content"
-                    onClick={expand}
-                    onChange={handleChange}
-                    value={note.content}
-                    placeholder="Take a note..."
-                    rows={isExpanded ? 3 : 1}
-                />
-                <ButtonIcon onClick={submitNote}>
-                    <AddIcon style={{ fontSize: "2.2rem" }} />
-                </ButtonIcon>
-            </StyledForm>
-        </div>
+        <StyledForm>
+            {isExpanded && <StyledInput
+                name="title"
+                onChange={handleChange}
+                value={note.title}
+                placeholder="Title"
+            />}
+            <StyledTextarea
+                name="content"
+                onClick={expand}
+                onChange={handleChange}
+                value={note.content}
+                placeholder="Take a note..."
+                rows={isExpanded ? 3 : 1}
+            />
+            <ButtonIcon onClick={submitNote}>
+                <AddIcon style={{ fontSize: "2.2rem" }} />
+            </ButtonIcon>
+        </StyledForm>
     );
 }
 

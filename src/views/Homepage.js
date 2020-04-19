@@ -13,7 +13,7 @@ const StyledHomepageWrapper = styled.div`
   grid-template-columns: minmax(0, 1fr) 15rem;
   grid-gap: 3rem;
 
-  @media (max-width: 485px) {
+  @media (max-width: 525px) {
     display: block;
   }
 `;
@@ -24,7 +24,7 @@ const StyledMainContent = styled.div`
 
 const StyledSideContent = styled.div`
   
-  @media (max-width: 485px) {
+  @media (max-width: 525px) {
         margin: 3rem;
   }
 `;
@@ -39,7 +39,7 @@ const StyledFooter = styled.footer`
   justify-content: space-between;
   padding: 0 2rem;
 
-  @media (max-width: 485px) {
+  @media (max-width: 525px) {
     display: block;
   }
 `;

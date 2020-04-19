@@ -86,7 +86,6 @@ const StyledNavLink = styled(NavLink)`
 
     @media (max-width: 768px) {
         font-size: 3rem;
-
     }
 `;
 

@@ -9,9 +9,16 @@ const StyledNewsWrapper = styled.div`
     grid-gap: .2rem;
     padding: .2rem;
     background: linear-gradient(90deg, #f7c626 15%, #f68c2f 40%, #e5127d 85%);
+
+    @media (max-width: 525px) {
+        z-index: -1;
+    }
 `;
 
 const StyledNewsCard = styled.div`
+    @media (max-width: 525px) {
+        z-index: -1;
+    }
 `;
 
 const StylednNewsLink = styled.a`
@@ -60,18 +67,20 @@ const News = () => {
         'country=us&' +
         'apiKey=11ef5bf7a6f04d5995125a5044948ee2' +
         '&pageSize=12';
+
     const req = new Request(url);
 
-    // useEffect(() => {
-    //     fetch(req)
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             setNews(res.articles)
+    useEffect(() => {
+        fetch(req)
+            .then(res => res.json())
+            .then(res => {
+                setNews(res.articles)
+            }
+            )
+            .catch(err => console.log(err))
+    }, [])
 
-    //         }
-    //         )
-    //         .catch(err => console.log(err))
-    // }, [req])
+    if (!news) return '';
 
     return (
         <>

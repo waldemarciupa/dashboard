@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
     align-items: center;
     padding: 3rem;
 
-    @media (max-width: 485px) {
+    @media (max-width: 525px) {
         z-index: 9999;
         position: inherit;
     }
