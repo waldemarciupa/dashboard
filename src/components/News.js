@@ -64,7 +64,7 @@ const News = () => {
 
     const [news, setNews] = useState([])
 
-    const url = 'https://newsapi.org/v2/top-headlines?' +
+    const url = 'https://cors-anywhere.herokuapp.com/newsapi.org/v2/top-headlines?' +
         'country=us&' +
         'apiKey=954e1c4786714a47a2c676012c180c44' +
         '&pageSize=15';
