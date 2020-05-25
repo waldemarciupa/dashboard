@@ -28,11 +28,6 @@ const StyledNewsImage = styled.div`
     background-size: cover; 
     position: relative;
 
-
-    @media (max-width: 768px) {
-       
-    }
-    
 `;
 
 const StyledNewsModal = styled.div`
@@ -42,7 +37,6 @@ const StyledNewsModal = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.05) linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 30%,rgba(0,0,0,0.75) 100%);
-
 
     &:hover {
     background: rgba(0,0,0,0.00) linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0) 30%,rgba(0,0,0,1) 100%);
@@ -95,7 +89,6 @@ const News = () => {
                                     <StyledNewsImage style={{ backgroundImage: `url(${e.urlToImage})` }}>
                                         <StyledNewsModal />
                                         <StylednNewsTitle>
-                                            {/* {e.title.substring(0, 80)}... */}
                                             {e.title}
                                         </StylednNewsTitle>
                                     </StyledNewsImage>
