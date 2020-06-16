@@ -16,5 +16,6 @@ Project is created with:
 * https://openweathermap.org/
 * https://github.com/najens/weather-icons-react.git
 * https://newsapi.org/
+* https://gnews.io/
 * https://github.com/mathdroid/covid-19-api
 * https://https://api.nbp.pl/
