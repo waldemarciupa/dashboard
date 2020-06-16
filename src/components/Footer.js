@@ -27,28 +27,31 @@ const StyledApiWrapper = styled.div`
 `;
 
 const Footer = () => {
-    return (
-        <StyledFooter>
-            <p>&copy; waldemarciupa 2020</p>
-            <StyledApiWrapper>
-                <p>Used APIs:</p>
-                <ul>
-                    <li>
-                        <a target="blank" rel="noopener" href="https://openweathermap.org/">openweathermap.org</a>
-                    </li>
-                    <li>
-                        <a target="blank" rel="noopener" href="https://newsapi.org/">newsapi.org</a>
-                    </li>
-                    <li>
-                        <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">mathdroid/covid-19-api</a>
-                    </li>
-                    <li>
-                        <a target="blank" rel="noopener" href="https://https://api.nbp.pl/">NBP Web API</a>
-                    </li>
-                </ul>
-            </StyledApiWrapper>
-        </StyledFooter>
-    )
+  return (
+    <StyledFooter>
+      <p>&copy; waldemarciupa 2020</p>
+      <StyledApiWrapper>
+        <p>Used APIs:</p>
+        <ul>
+          <li>
+            <a target="blank" rel="noopener" href="https://openweathermap.org/">openweathermap.org</a>
+          </li>
+          <li>
+            <a target="blank" rel="noopener" href="https://newsapi.org/">newsapi.org</a>
+          </li>
+          <li>
+            <a target="blank" rel="noopener" href="https://gnews.io/">gnews.io</a>
+          </li>
+          <li>
+            <a target="blank" rel="noopener" href="https://github.com/mathdroid/covid-19-api">mathdroid/covid-19-api</a>
+          </li>
+          <li>
+            <a target="blank" rel="noopener" href="https://https://api.nbp.pl/">NBP Web API</a>
+          </li>
+        </ul>
+      </StyledApiWrapper>
+    </StyledFooter>
+  )
 }
 
 export default Footer;
