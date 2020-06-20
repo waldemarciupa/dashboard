@@ -142,10 +142,7 @@ const HamburgerInner = styled.span`
         top: 10px;
         transform: ${({ open }) => open ? 'translateY(-10px) rotate(-45deg)' : 'translateY(0) rotate(0)'};
     }
-
 `;
-
-
 
 const Menu = () => {
 
@@ -173,10 +170,10 @@ const Menu = () => {
                     <StyledNavLink onClick={handleClick} to='/dashboard/notes' activeStyle={active}>Notes</StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink onClick={handleClick} to='/dashboard/weather' activeStyle={active}>Weather</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} to='/dashboard/currencies' activeStyle={active}>Currencies</StyledNavLink>
                 </li>
                 <li>
-                    <StyledNavLink onClick={handleClick} to='/dashboard/currencies' activeStyle={active}>Currencies</StyledNavLink>
+                    <StyledNavLink onClick={handleClick} to='/dashboard/weather' activeStyle={active}>Weather</StyledNavLink>
                 </li>
             </StyledLinksList>
             <StyledClock>

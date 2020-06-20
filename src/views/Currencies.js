@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Line } from "react-chartjs-2";
 
-const endpoint = 'https://api.exchangeratesapi.io/latest';
+const latestEndpoint = 'https://api.exchangeratesapi.io/latest';
+const historyEndpoint = 'https://api.exchangeratesapi.io/history';
+
+const today = new Date();
+const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+const monthAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+const formatedToday = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
+const formatedWeekAgo = weekAgo.getFullYear() + "-" + (weekAgo.getMonth() + 1) + "-" + weekAgo.getDate();
+
+const formatedMonthAgo = monthAgo.getFullYear() + "-" + (monthAgo.getMonth() + 1) + "-" + monthAgo.getDate();
 
 const currencies = {
     USD: 'United States Dollar',
@@ -42,40 +54,85 @@ const currenciesArray = Object.entries(currencies);
 
 const StyledWrapper = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 10px;
+    background: lightgray;
     color: #000;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 `;
 
 const StyledCurrenciesContainer = styled.div`
-    width: 650px;
-    height: 250px;
+    width: 100%;
     background: lightgrey;
-    font-size: 3rem;
-        text-align: center;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const StyledCurrenciesForm = styled.form`
-        display: grid;
-        grid-template-columns: 100px 1fr 1fr 1fr;
-        grid-auto-rows: 1fr;
-        font-size: 3rem;
-        text-align: center;
-        font-weight: 600;
-        padding: 2rem;
-        margin-top: 2rem;
-        grid-gap:2rem;
-        align-items: stretch;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    grid-gap: 2rem;
+`;
+
+const StyledChartContainer = styled.div`
+    width: 80%;
+    margin: 0 auto;
+
+    @media(max-width: 768px) {
+        width: 90%;
+    }
+
+    @media(max-width: 576px) {
+        width: 100%;
+    }
 `;
 
 const StyledInput = styled.input`
     text-align: center;
+    font-size: 2.4rem;
+`;
+
+const StyledButtonsContainer = styled.div`
+    margin-top: 10px;
+    text-align: center;
+`;
+
+const StyledButton = styled.button`
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    background: rgba(57,91,119,1);
+    margin: 5px;
+    border: none;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background: rgb(33, 53, 69);
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
 `;
 
 const Currencies = () => {
+
+    const [data, setData] = useState({});
+
     const [options] = useState(currenciesArray);
 
     const [ratesByBase] = useState({});
@@ -86,15 +143,27 @@ const Currencies = () => {
     const [fromOption, setFromOption] = useState('USD');
     const [toOption, setToOption] = useState('USD');
 
+    const [date, setDate] = useState(formatedMonthAgo);
+
     const fetchRates = async (base = 'USD') => {
-        const res = await fetch(`${endpoint}?base=${base}`);
+        const res = await fetch(`${latestEndpoint}?base=${base}`);
         const rates = await res.json();
         return rates;
-    }
+    };
+
+    const fetchChartRates = async (base = 'USD') => {
+        const res = await fetch(`${historyEndpoint}?start_at=${date}&end_at=${formatedToday}&base=${base}`);
+        const rates = await res.json();
+        return rates;
+    };
 
     useEffect(() => {
         convert(fromInput, fromOption, toOption);
     }, [fromInput, fromOption, toOption]);
+
+    useEffect(() => {
+        getDataToChart(fromOption, toOption);
+    }, [date, fromOption, toOption]);
 
     const handleChangeFrom = (event) => {
         setFromInput(event.target.value);
@@ -113,7 +182,7 @@ const Currencies = () => {
             style: 'currency',
             currency
         }).format(amount);
-    }
+    };
 
     const convert = async (amount, from, to) => {
         if (!ratesByBase[from]) {
@@ -126,11 +195,43 @@ const Currencies = () => {
         setToInput(a);
     };
 
+    const getDataToChart = async (from, to) => {
+        const rates = await fetchChartRates(from);
+        const ratesRates = Object.keys(rates.rates).sort();
+        const ratesObjectValues = Object.values(rates.rates);
+        const ratesArray = ratesObjectValues.map(e => {
+            return e[to];
+        });
+
+        setData({
+            labels: ratesRates,
+            datasets: [
+                {
+                    label: from,
+                    data: ratesArray,
+                    fill: true,
+                    backgroundColor: "rgba(75,192,192,0.2)",
+                    borderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: 'rgba(57,91,119,1)',
+                    lineTension: 0.2,
+                    pointHoverRadius: 8,
+                    spanGaps: false,
+                }
+            ]
+        });
+    };
+
+    const Chart = () => {
+        return (
+            <Line data={data} />
+        )
+    };
+
     return (
         <StyledWrapper>
             <StyledCurrenciesContainer>
-                <h1>{fromInput} {fromOption} is</h1>
-                <p>{toInput}</p>
+                <h3>{fromInput} {fromOption} is</h3>
+                <h2>{toInput}</h2>
                 <StyledCurrenciesForm>
                     <StyledInput
                         type="number"
@@ -146,7 +247,6 @@ const Currencies = () => {
                             options.map(([currencyCode, currencyName]) => <option value={currencyCode} key={currencyCode}>{currencyCode} - {currencyName}</option>)
                         }
                     </select>
-                    <p>in</p>
                     <select
                         value={toOption}
                         onChange={handleChangeToOption}
@@ -157,6 +257,13 @@ const Currencies = () => {
                     </select>
                 </StyledCurrenciesForm>
             </StyledCurrenciesContainer>
+            <StyledChartContainer>
+                <Chart />
+            </StyledChartContainer>
+            <StyledButtonsContainer>
+                <StyledButton onClick={() => { setDate(formatedWeekAgo) }}>7 days</StyledButton>
+                <StyledButton onClick={() => { setDate(formatedMonthAgo) }}>1 month</StyledButton>
+            </StyledButtonsContainer>
         </StyledWrapper>
     )
 }
