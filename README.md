@@ -11,7 +11,7 @@ You can see:
 ![dashboard](./src/assets/images/notes.png)
 
 * convert currencies
-![dashboard](./src/assets/images/convertCurrencies.png)
+![dashboard](./src/assets/images/currencyConverter.png)
 
 ## Demo
 Click the link - https://waldemarciupa.github.io/dashboard/
