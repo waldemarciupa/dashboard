@@ -48,6 +48,9 @@ const Footer = () => {
           <li>
             <a target="blank" rel="noopener" href="https://https://api.nbp.pl/">NBP Web API</a>
           </li>
+          <li>
+            <a target="blank" rel="noopener" href="https://api.exchangeratesapi.io">api.exchangeratesapi.io</a>
+          </li>
         </ul>
       </StyledApiWrapper>
     </StyledFooter>

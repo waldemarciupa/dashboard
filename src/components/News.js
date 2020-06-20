@@ -109,7 +109,7 @@ const News = () => {
 
     const url = 'https://gnews.io/api/v3/search?q=example&token=f55cf07eeff83bf51f5de9a174f91dff&image=required';
 
-    // const req = new Request(url);
+    const req = new Request(url);
 
     useEffect(() => {
         fetch(url)
