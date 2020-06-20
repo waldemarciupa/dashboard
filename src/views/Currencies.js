@@ -5,6 +5,8 @@ const endpoint = 'https://api.exchangeratesapi.io/latest';
 
 const currencies = {
     USD: 'United States Dollar',
+    EUR: 'Euro',
+    PLN: 'Polish Zloty',
     AUD: 'Australian Dollar',
     BGN: 'Bulgarian Lev',
     BRL: 'Brazilian Real',
@@ -27,7 +29,6 @@ const currencies = {
     NOK: 'Norwegian Krone',
     NZD: 'New Zealand Dollar',
     PHP: 'Philippine Peso',
-    PLN: 'Polish Zloty',
     RON: 'Romanian Leu',
     RUB: 'Russian Ruble',
     SEK: 'Swedish Krona',
@@ -35,7 +36,6 @@ const currencies = {
     THB: 'Thai Baht',
     TRY: 'Turkish Lira',
     ZAR: 'South African Rand',
-    EUR: 'Euro',
 };
 
 const currenciesArray = Object.entries(currencies);
@@ -47,6 +47,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 `;
 
 const StyledCurrenciesContainer = styled.div`
@@ -59,44 +60,97 @@ const StyledCurrenciesContainer = styled.div`
 
 const StyledCurrenciesForm = styled.form`
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 100px 1fr 1fr 1fr;
         grid-auto-rows: 1fr;
         font-size: 3rem;
         text-align: center;
         font-weight: 600;
         padding: 2rem;
         margin-top: 2rem;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
         grid-gap:2rem;
         align-items: stretch;
+`;
+
+const StyledInput = styled.input`
+    text-align: center;
 `;
 
 const Currencies = () => {
     const [options] = useState(currenciesArray);
 
+    const [ratesByBase] = useState({});
+
+    const [fromInput, setFromInput] = useState(1);
+    const [toInput, setToInput] = useState('');
+
+    const [fromOption, setFromOption] = useState('USD');
+    const [toOption, setToOption] = useState('USD');
+
+    const fetchRates = async (base = 'USD') => {
+        const res = await fetch(`${endpoint}?base=${base}`);
+        const rates = await res.json();
+        return rates;
+    }
+
     useEffect(() => {
-        const fetchRates = async (base = 'EUR') => {
-            const res = await fetch(`${endpoint}?base=${base}`);
-            const rates = await res.json();
-            console.log(rates);
+        convert(fromInput, fromOption, toOption);
+    }, [fromInput, fromOption, toOption]);
+
+    const handleChangeFrom = (event) => {
+        setFromInput(event.target.value);
+    };
+
+    const handleChangeFromOption = (event) => {
+        setFromOption(event.target.value);
+    };
+
+    const handleChangeToOption = (event) => {
+        setToOption(event.target.value);
+    };
+
+    const formatCurrency = (amount, currency) => {
+        return Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency
+        }).format(amount);
+    }
+
+    const convert = async (amount, from, to) => {
+        if (!ratesByBase[from]) {
+            const rates = await fetchRates(from);
+            ratesByBase[from] = rates;
         }
-        fetchRates();
-    }, []);
+        const rate = ratesByBase[from].rates[to];
+        const convertedAmount = rate * amount;
+        const a = formatCurrency(convertedAmount, to);
+        setToInput(a);
+    };
 
     return (
         <StyledWrapper>
             <StyledCurrenciesContainer>
-                <h1>1 euro is </h1>
-                <p>4,50 zł</p>
+                <h1>{fromInput} {fromOption} is</h1>
+                <p>{toInput}</p>
                 <StyledCurrenciesForm>
-                    <input type="number" name="from" />
-                    <select>
+                    <StyledInput
+                        type="number"
+                        name="from"
+                        value={fromInput}
+                        onChange={handleChangeFrom}
+                    />
+                    <select
+                        value={fromOption}
+                        onChange={handleChangeFromOption}
+                    >
                         {
                             options.map(([currencyCode, currencyName]) => <option value={currencyCode} key={currencyCode}>{currencyCode} - {currencyName}</option>)
                         }
                     </select>
-                    <input type="number" name="from" />
-                    <select>
+                    <p>in</p>
+                    <select
+                        value={toOption}
+                        onChange={handleChangeToOption}
+                    >
                         {
                             options.map(([currencyCode, currencyName]) => <option value={currencyCode} key={currencyCode}>{currencyCode} - {currencyName}</option>)
                         }

@@ -111,15 +111,15 @@ const News = () => {
 
     // const req = new Request(url);
 
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(res => {
-                setNews(res.articles.slice(0, 9))
-            }
-            )
-            .catch(err => console.log(err))
-    }, [])
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             setNews(res.articles.slice(0, 9))
+    //         }
+    //         )
+    //         .catch(err => console.log(err))
+    // }, [])
 
     if (!news) return '';
 
