@@ -20,8 +20,6 @@ const StyledCard = styled.div`
     background: #222;
     border: 1px solid #363636;
     color: #fff;
-    /* border-radius: 10px; */
-    /* box-shadow: 0 2px 5px #ccc; */
 `;
 
 const StyledCardTitle = styled.p`

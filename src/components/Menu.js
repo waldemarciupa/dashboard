@@ -16,7 +16,6 @@ const StyledWrapper = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* box-shadow: 0 2px 5px #ccc; */
     border-right: 1px solid #333333;
 
     @media (max-width: 768px) {
@@ -171,9 +170,6 @@ const Menu = () => {
                 </li>
                 <li>
                     <StyledNavLink onClick={handleClick} to='/dashboard/currencies' activeStyle={active}>Currencies</StyledNavLink>
-                </li>
-                <li>
-                    <StyledNavLink onClick={handleClick} to='/dashboard/weather' activeStyle={active}>Weather</StyledNavLink>
                 </li>
             </StyledLinksList>
             <StyledClock>

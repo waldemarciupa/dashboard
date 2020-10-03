@@ -19,8 +19,6 @@ const StyledCity = styled.p`
     font-size: 1.4rem;
 `;
 
-
-
 const Weather = () => {
 
     const [long, setLong] = useState('');

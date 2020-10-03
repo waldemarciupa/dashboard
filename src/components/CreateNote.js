@@ -10,7 +10,6 @@ const StyledForm = styled.form`
     background: #fff;
     padding: 15px;
     border-radius: 7px;
-    /* box-shadow: 0 2px 5px #ccc; */
 
     @media (max-width: 485px) {
         margin: 3rem 2rem 2rem 2rem;
