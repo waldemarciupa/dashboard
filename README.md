@@ -1,3 +1,6 @@
+## Demo
+Click the link - https://waldemarciupa.github.io/dashboard/
+
 # Dashboard
 Now you can check all of the news you need in one place.
 
@@ -12,9 +15,6 @@ You can see:
 
 * convert currencies
 ![dashboard](./src/assets/images/currencyConverter.png)
-
-## Demo
-Click the link - https://waldemarciupa.github.io/dashboard/
 
 ## Technologies
 Project is created with:
